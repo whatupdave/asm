@@ -29,6 +29,8 @@ GEM
     atomic (1.1.9)
     builder (3.1.4)
     erubis (2.7.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -85,6 +87,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
+    uglifier (2.1.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
 
 PLATFORMS
   ruby
@@ -96,3 +101,4 @@ DEPENDENCIES
   puma
   rails (= 4.0.0.rc2)
   sass-rails (~> 4.0.0.rc2)
+  uglifier
