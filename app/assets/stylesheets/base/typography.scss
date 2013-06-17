@@ -1,5 +1,5 @@
 body {
-  font-family: "Neue Haas Grotesk Text", Helvetica;
+  font-family: $neueHaasGroteskText;
   -webkit-font-smoothing: antialiased;
   -webkit-hyphens: none;
 }
@@ -11,5 +11,5 @@ h4,
 h5,
 h6 {
   line-height: 1em;
-  font-family: "Neue Haas Grotesk Display";
+  font-family: $neueHaasGroteskDisplay;
 }
