@@ -9,3 +9,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bourbon'
+
+group :test do
+  gem 'rspec-rails'
+end
