@@ -1,0 +1,17 @@
+.page
+  %h1 A fresh idea
+
+  = form_tag ideas_path(@idea) do
+    %label(for="idea_name") What should we call it?
+    %input#idea_name(type="text" maxlength="255" name="name")
+    %p.hint
+      This is just a codename. The final product may have a different name.
+
+    %label(for="idea_pitch") What is it?
+    %input#idea_pitch(type="text" name="pitch")
+    %p.hint
+      Short and clear words are best.
+
+    .form-actions
+      %p By submitting your idea you implicitly agree to Assembly's <a href="/terms">terms</a>.
+      %input.btn(type="submit" value="Continue on to nitty gritty")

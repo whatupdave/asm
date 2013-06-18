@@ -1,0 +1,33 @@
+@import 'addons/html5-input-types';
+@import 'css3/box-sizing';
+
+form {
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #{$all-text-inputs},
+  textarea {
+    @include box-sizing(border-box);
+    width: 100%;
+    font-family: $neueHaasGroteskText;
+    margin-bottom: 20px;
+
+    + .hint {
+      margin-top: - (20px - 5px);
+      margin-bottom: 20px;
+    }
+  }
+
+  textarea.textarea-vertical {
+    resize: vertical;
+  }
+
+  .hint {
+    font-size: 14px;
+    color: rgba(black, 0.4);
+  }
+
+}
