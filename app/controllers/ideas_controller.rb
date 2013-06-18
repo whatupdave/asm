@@ -7,8 +7,11 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(new_idea_params)
     @idea.id = SecureRandom.uuid
-    @idea.save
-    redirect_to idea_path(@idea)
+    if @idea.valid? && @idea.save
+      redirect_to idea_path(@idea)
+    else
+      render :new
+    end
   end
 
   def show

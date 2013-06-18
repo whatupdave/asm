@@ -2,6 +2,8 @@
   %h1 A fresh idea
 
   = form_tag ideas_path(@idea) do
+    = render 'shared/error_messages', target: @idea
+
     %label(for="idea_name") What should we call it?
     %input#idea_name(type="text" maxlength="255" name="name")
     %p.hint
