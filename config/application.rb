@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+STDOUT.sync = true
+
 module ASM
   class Application < Rails::Application
 
@@ -13,7 +15,7 @@ module ASM
     config.serve_static_assets = false
 
     # Use a logger that writes to STDOUT. Taken from:
-    # https://github.com/heroku/rails_log_stdout/blob/master/lib/rails_log_stdout/rails.rb
+    # https://github.com/heroku/rails_log_stdout
     config.logger = Logger.new(STDOUT)
     log_level_name = (
       [ENV['LOG_LEVEL'].to_s.upcase, "INFO"] &
@@ -21,9 +23,13 @@ module ASM
     ).compact.first
     config.logger.level = Logger.const_get(log_level_name)
 
-    # Force STDOUT to flush whenever it recieves input. Otherwise it batches log
-    # lines together which makes them difficult to read.
-    STDOUT.sync = true
+    config.generators do |g|
+      g.orm :active_record
+      g.template_engine :haml
+      g.test_framework :rspec, :fixure => false
+      g.stylesheets false
+      g.helpers false
+    end
 
   end
 end

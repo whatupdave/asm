@@ -9,6 +9,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bourbon'
+gem 'devise', '~> 3.0.0.rc'
 
 group :test do
   gem 'rspec-rails'
