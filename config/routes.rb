@@ -2,6 +2,8 @@ ASM::Application.routes.draw do
 
   root :to => 'home#index'
 
+  get   '/help/faq' => 'help#faq', :as => :faq
+
   get   '/new' => 'ideas#new', :as => :new_idea
   post  '/ideas' => 'ideas#create', :as => :ideas
   get   '/ideas/:id' => 'ideas#show', :as => :idea
