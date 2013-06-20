@@ -10,6 +10,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.0.rc2)
       activesupport (= 4.0.0.rc2)
       builder (~> 3.1.0)
@@ -32,12 +34,21 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.2)
     devise (3.0.0.rc)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -119,8 +130,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   bourbon
+  coffee-script
   devise (~> 3.0.0.rc)
+  eco
   haml
   jquery-rails
   pg

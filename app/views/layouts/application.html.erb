@@ -7,10 +7,18 @@
 
     <%= javascript_include_tag 'application' %>
     <%= render(partial: 'shared/analytics') %>
-
     <%= stylesheet_link_tag 'http://cloud.webtype.com/css/a3ef0e70-14ef-4a0a-ab95-f8b0d80f4893.css', media: 'all' %>
   </head>
   <body>
+    <% if signed_in? %>
+      <%= current_user.email %>
+      <%= button_to 'logout', destroy_user_session_path, :method => :delete %>
+    <% end %>
+
     <%= yield %>
+
+    <% if signed_in? %>
+      <script>window.app.setCurrentUser(<%= UserSerializer.new(current_user, scope:  current_user).to_json.html_safe %>);</script>
+    <% end %>
   </body>
 </html>

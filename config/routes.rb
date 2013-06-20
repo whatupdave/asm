@@ -11,8 +11,9 @@ ASM::Application.routes.draw do
 
   as :user do
     get    '/login' => 'users/sessions#new', :as => :new_user_session
-    post   '/login' => 'users/sessions#new', :as => :user_session
-    delete '/logout' => 'users/sessions#destroy', :as => :destory_user_session
+    post   '/login' => 'users/sessions#new'
+    get    '/user' => 'users/sessions#show', :as => :user_session
+    delete '/logout' => 'users/sessions#destroy', :as => :destroy_user_session
 
     get    '/signup' => 'users/registrations#new', :as => :new_user_registration
     post   '/signup' => 'users/registrations#create', :as => :user_registration

@@ -1,3 +1,4 @@
+
 .header
   %h1 Assembly
 
@@ -18,9 +19,30 @@
     %a(href="#") More details
 
 .submit-ideas
-  %a{href: new_idea_path}
+  %a#submit-ideas-el{href: new_idea_path}
     .submit-ideas-inner
       %h1
         Submit your idea,
         %br
         expand horizons.
+
+#new-user-registration-view-el
+
+:javascript
+  $('#submit-ideas-el').click(function(e) {
+    if(!app.isSignedIn()) {
+      e.preventDefault();
+
+      var href = $(e.target).attr('href');
+
+      var view = new NewUserRegistrationView({
+        el: $('#new-user-registration-view-el')
+      });
+
+      app.on('change:currentUser', function() {
+        window.location = href;
+      });
+
+      view.render();
+    }
+  });

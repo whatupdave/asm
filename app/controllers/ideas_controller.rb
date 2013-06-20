@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  respond_to :html, :json
 
   before_action :authenticate_user!, only: [:new, :create, :update]
 
@@ -21,6 +22,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params.fetch(:id))
+    render json: @idea
   end
 
   def update
