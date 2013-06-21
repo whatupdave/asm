@@ -22,7 +22,11 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params.fetch(:id))
-    render json: @idea
+
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @idea }
+    end
   end
 
   def update
