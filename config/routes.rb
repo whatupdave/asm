@@ -2,7 +2,7 @@ ASM::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get   '/help/faq' => 'help#faq', :as => :faq
+  get   '/help/manual' => 'help#manual', :as => :manual
 
   get   '/new' => 'ideas#new', :as => :new_idea
   post  '/ideas' => 'ideas#create', :as => :ideas

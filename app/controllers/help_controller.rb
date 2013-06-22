@@ -1,6 +1,6 @@
 class HelpController < ApplicationController
 
-  def faq
+  def manual
   end
 
 end
