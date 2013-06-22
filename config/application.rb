@@ -12,7 +12,7 @@ module ASM
   class Application < Rails::Application
 
     # Serve static assets. Heroku needs this for production.
-    config.serve_static_assets = false
+    config.serve_static_assets = true
 
     config.generators do |g|
       g.orm :active_record
