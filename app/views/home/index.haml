@@ -1,47 +1,25 @@
-.page
-  %h1 Assembly
+%h1 Assembly
 
-  %ul
-    %li
-      %a(href="/") Manifesto
-    %li
-      %a(href="/help/manual") Manual
-    %li
-      %a(href="/leaderboard") Leaderboard
+%ul
+  %li
+    %a(href="/") Manifesto
+  %li
+    %a(href="/help/manual") Manual
+  %li
+    %a(href="/leaderboard") Leaderboard
 
-  %p Mankind's greatest achievements: Pyramids, The Moon, Linux, Wikipedia. These are new heights we hit when thousands of people come together and collaborate with a single vision.
+%p Mankind's greatest achievements: Pyramids, The Moon, Linux, Wikipedia. These are new heights we hit when thousands of people come together and collaborate with a single vision.
 
-  %p What if we could build products this way? Imagine that instead of going to work tomorrow you do some work and in return got a real stake in its success.
+%p What if we could build products this way? Imagine that instead of going to work tomorrow you do some work and in return got a real stake in its success.
 
-  %p Here's how Assembly works.
+%p Here's how Assembly works.
 
-  %p First, we run a competition to find great ideas. We rely on the wisdom of crowds to surface the best out of a sea of ideas. If your idea is chosen, you'll get 5% of its profit forever.
+%p First, we run a competition to find great ideas. We rely on the wisdom of crowds to surface the best out of a sea of ideas. If your idea is chosen, you'll get 5% of its profit forever.
 
-  %p Now, with an idea selected we all get to work. Skilled professionals of all walks of life collaborate and build the product. For their contributions they are rewarded with a share of real profit.
+%p Now, with an idea selected we all get to work. Skilled professionals of all walks of life collaborate and build the product. For their contributions they are rewarded with a share of real profit.
 
-  %p And we're here to help. Your success is our success. When ideas are greenlit, we make sure they get built.
+%p And we're here to help. Your success is our success. When ideas are greenlit, we make sure they get built.
 
-  %a(data-authenticated="true"){href: new_idea_path}
-    .submit-ideas-inner Submit your idea, expand horizons.
 
-#new-user-registration-view-el
-
-/ HACK Once the design is in think about a more organic way of displaying this
-:javascript
-  $('#submit-ideas-el').click(function(e) {
-    if(!app.isSignedIn()) {
-      e.preventDefault();
-
-      var href = $(e.target).attr('href');
-
-      var view = new NewUserRegistrationView({
-        el: $('#new-user-registration-view-el')
-      });
-
-      app.on('change:currentUser', function() {
-        window.location = href;
-      });
-
-      view.render();
-    }
-  });
+%a{href: batch_path(@batch)}
+  We'll pick our first product (codenamed #{@batch.name}) in #{time_ago_in_words(@batch.ends_at)}. Pick the app you want!

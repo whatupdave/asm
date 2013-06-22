@@ -9,6 +9,8 @@ ASM::Application.routes.draw do
   get   '/ideas/:id' => 'ideas#show', :as => :idea
   patch '/ideas/:id' => 'ideas#update'
 
+  get   '/batches/:id' => 'batches#show', :as => :batch
+
   devise_for :users, :skip => :all
 
   as :user do
