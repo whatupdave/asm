@@ -7,3 +7,6 @@
 [submodule "vendor/underscore"]
 	path = vendor/underscore
 	url = https://github.com/documentcloud/underscore.git
+[submodule "vendor/moment"]
+	path = vendor/moment
+	url = https://github.com/timrwood/moment.git
