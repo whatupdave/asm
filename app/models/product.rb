@@ -48,10 +48,10 @@ class Product < Struct.new(:id, :slug, :name, :description, :wips)
   end
 
   def self.whatupdave
-    User.new(1, 'whatupdave', 'dave@snappyco.de')
+    User.find_by(username: 'whatupdave')
   end
 
   def self.chrislloyd
-    User.new(2, 'chrislloyd', 'christopher.lloyd@gmail.com')
+    User.find_by(username: 'chrislloyd')
   end
 end

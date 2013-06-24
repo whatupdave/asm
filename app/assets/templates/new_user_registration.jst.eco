@@ -1,0 +1,19 @@
+<div class="overlay">
+
+  <div class="overlay-content">
+    <form action="/signup.json" method="post" accept-charset="UTF-8" data-remote="true" class="new-user" id="new_user">
+      <label for="user_email">Email</label>
+      <input type="email" name="user[email]" id="user_email" />
+
+      <label for="user_password">Password</label>
+      <input type="password" name="user[password]" id="user_password" />
+
+      <label for="user_password_confirmation">Password confirmation</label>
+      <input type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+
+      <div class="form-actions">
+        <input name="commit" type="submit" value="Sign up">
+      </div>
+    </div>
+  </div>
+</div>

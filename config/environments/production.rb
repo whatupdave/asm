@@ -1,6 +1,4 @@
 ASM::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -23,8 +21,11 @@ ASM::Application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # Fallback to assets pipeline if a precompiled asset is missed.
+  config.assets.compile = true
+
+  # Prevent initializing the app and connecting to the database
+  config.assets.initialize_on_precompile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true

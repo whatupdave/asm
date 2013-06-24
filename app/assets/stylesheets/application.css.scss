@@ -1,4 +1,5 @@
 //= require normalize
-@import 'support';
-@import 'base';
-@import 'modules';
+@import 'bourbon';
+@import 'support',
+        'base',
+        'modules';

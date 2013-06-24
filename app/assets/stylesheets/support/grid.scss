@@ -6,6 +6,10 @@ $width: 760px;
   margin-right: auto;
 }
 
+body {
+  margin: 20px;
+}
+
 .container {
   @include container;
 }
