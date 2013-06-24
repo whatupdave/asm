@@ -1,0 +1,16 @@
+%h1 Assembly Leaderboard
+
+%ul
+  %li
+    %a(href="/") Manifesto
+  %li
+    %a(href="/help/manual") Manual
+  %li
+    %a(href="/leaderboard") Leaderboard
+
+%ul.ideas
+  - for idea in @ideas
+    %li.idea
+      %span.name= idea.name
+      –
+      %span.pitch= idea.pitch

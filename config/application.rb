@@ -21,6 +21,5 @@ module ASM
       g.stylesheets false
       g.helpers false
     end
-
   end
 end

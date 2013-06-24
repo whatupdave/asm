@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe IdeasController do
+  let(:user) { User.make! }
 
   describe '#new' do
-
     before do
+      sign_in user
+
       get :new
     end
 

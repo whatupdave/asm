@@ -5,7 +5,8 @@ ASM::Application.routes.draw do
   get   '/help/manual' => 'help#manual', :as => :manual
 
   get   '/new' => 'ideas#new', :as => :new_idea
-  post  '/ideas' => 'ideas#create', :as => :ideas
+  get   '/leaderboard' => 'ideas#index', :as => :ideas
+  post  '/ideas' => 'ideas#create'
   get   '/ideas/:id' => 'ideas#show', :as => :idea
   patch '/ideas/:id' => 'ideas#update'
 
@@ -25,7 +26,7 @@ ASM::Application.routes.draw do
     patch  '/settings' => 'users/registrations#update'
   end
 
-  resources :products, path: '/', only: [:show] do
-    resources :wips, only: [:index, :new, :show]
-  end
+  # resources :products, path: '/', only: [:show] do
+  #   resources :wips, only: [:index, :new, :show]
+  # end
 end

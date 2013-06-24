@@ -1,5 +1,7 @@
+require 'activerecord_uuid'
+
 class Idea < ActiveRecord::Base
-  self.primary_key = :id
+  include ActiveRecord::UUID
 
   belongs_to :user
   validates :user_id, presence: true

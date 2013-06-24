@@ -8,11 +8,14 @@ class IdeasController < ApplicationController
     @idea.user = current_user
   end
 
+  def index
+    @ideas = Idea.all
+  end
+
   def create
     @idea = Idea.new(new_idea_params)
     @idea.user = current_user
     if @idea.valid?
-      @idea.id = SecureRandom.uuid
       @idea.save
       redirect_to idea_path(@idea)
     else
