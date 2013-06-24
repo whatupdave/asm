@@ -1,0 +1,26 @@
+= render partial: 'products/header', locals: { section: 'work' }
+
+.container
+  %a{href: product_wips_path(@product.slug)} << Back
+
+  .wip
+    .discussion-bubble
+      %img.avatar{src: @wip.user.avatar_url}
+
+      .topic= @wip.title
+      .body= @wip.body
+
+    %hr/
+
+    - for @comment in @wip.comments
+      .discussion-bubble
+        %img.avatar{src: @comment.user.avatar_url}
+
+        .body= @comment.body
+
+      %hr/
+
+    = form_for(:new_comment) do |f|
+      .body= f.text_area :body, placeholder: 'Leave a comment'
+      .submit
+        = f.submit 'Comment'

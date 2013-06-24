@@ -1,0 +1,31 @@
+= render partial: 'products/header', locals: { section: 'work' }
+
+.container
+  .actions
+    %a{href: new_product_wip_path(@product.slug)} Create wip
+
+  .wips
+    %h2 Work In Progress (#{@product.wips.size})
+    %ul.nav-list
+      %li
+        %a(href='#all')
+          .badge 1
+          All Wips
+      %li
+        %a(href='#yours')
+          .badge 1
+          Your Wips
+
+    %ul.wip-list
+      - @product.wips.each do |wip|
+        %li
+          .vote ▲
+          .user= wip.user.username
+          .wip
+            %a{href: product_wip_path(@product.slug, wip.number)}= wip.title
+
+          .meta
+            .votes
+              #{wip.votes} votes
+            .comments
+              #{wip.comments.size} comments

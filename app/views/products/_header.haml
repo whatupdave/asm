@@ -1,0 +1,16 @@
+.product-header
+  %h1= @product.name
+
+.container
+  %ul.nav
+    %li{class: "#{'active' if section == 'about'}"}
+      %a{href: product_path(@product.slug)} About
+    %li{class: "#{'active' if section == 'news'}"}
+      %a(href='#') News
+    %li{class: "#{'active' if section == 'work'}"}
+      %a{href: product_wips_path(@product.slug)} Work
+    %li{class: "#{'active' if section == 'finances'}"}
+      %a(href='#') Finances
+
+  .votes
+    22 Votes Remaining

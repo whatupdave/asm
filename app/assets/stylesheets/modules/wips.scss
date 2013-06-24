@@ -1,0 +1,26 @@
+ul.wip-list {
+  float: left;
+
+  width: 500px;
+  margin: 0;
+  padding: 0 0 0 15px;
+
+  list-style-type: none;
+
+  li {
+    display: block;
+  }
+
+  .vote, .user, .wip {
+    display: inline-block;
+  }
+
+  .user, .wip {
+    padding-left: 6px;
+  }
+
+  .meta {
+    color: #666;
+    padding-left: 25px;
+  }
+}

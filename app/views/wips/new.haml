@@ -1,0 +1,14 @@
+= render partial: 'products/header', locals: { section: 'work' }
+
+.container
+  %a{href: product_wips_path(@product.slug)} << Back
+
+  .new-wip
+    = form_for(:wip) do |f|
+      .title
+        = f.text_field :title, placeholder: 'Title'
+      .description
+        = f.text_area :description
+
+      .actions
+        = f.submit 'Create wip'
