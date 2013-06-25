@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.primary_key :id, :uuid, default: nil
 
       t.string :username, null: false
+      t.string :customer_id
 
       ## Database authenticatable
       t.string :email,              null: false

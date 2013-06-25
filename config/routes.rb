@@ -6,9 +6,8 @@ ASM::Application.routes.draw do
 
   get   '/new' => 'ideas#new', :as => :new_idea
   get   '/leaderboard' => 'ideas#index', :as => :ideas
-  post  '/ideas' => 'ideas#create'
-  get   '/ideas/:id' => 'ideas#show', :as => :idea
-  patch '/ideas/:id' => 'ideas#update'
+
+  resources :ideas, only: [:show, :create, :edit, :update]
 
   get   '/batches/:id' => 'batches#show', :as => :batch
 
@@ -16,7 +15,7 @@ ASM::Application.routes.draw do
 
   as :user do
     get    '/login' => 'users/sessions#new', :as => :new_user_session
-    post   '/login' => 'users/sessions#new'
+    post   '/login' => 'users/sessions#create'
     get    '/user' => 'users/sessions#show', :as => :user_session
     delete '/logout' => 'users/sessions#destroy', :as => :destroy_user_session
 
@@ -26,7 +25,7 @@ ASM::Application.routes.draw do
     patch  '/settings' => 'users/registrations#update'
   end
 
-  # resources :products, path: '/', only: [:show] do
-  #   resources :wips, only: [:index, :new, :show]
-  # end
+  resources :products, path: '/', only: [:show] do
+    resources :wips, only: [:index, :new, :show]
+  end
 end

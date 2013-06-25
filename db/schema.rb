@@ -11,24 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130619005108) do
+ActiveRecord::Schema.define(version: 20130624234229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ideas", id: false, force: true do |t|
-    t.uuid     "id",          null: false
-    t.string   "name",        null: false
+    t.uuid     "id",           null: false
+    t.string   "slug"
+    t.string   "name",         null: false
     t.string   "pitch"
     t.text     "description"
+    t.datetime "submitted_at"
+    t.datetime "approved_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.uuid     "user_id",     null: false
+    t.uuid     "user_id",      null: false
+  end
+
+  create_table "presales", id: false, force: true do |t|
+    t.uuid     "id",         null: false
+    t.uuid     "user_id",    null: false
+    t.uuid     "idea_id",    null: false
+    t.integer  "amount",     null: false
+    t.string   "charge_id"
+    t.datetime "charged_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", id: false, force: true do |t|
     t.uuid     "id",                                 null: false
     t.string   "username",                           null: false
+    t.string   "customer_id"
     t.string   "email",                              null: false
     t.string   "encrypted_password",                 null: false
     t.string   "reset_password_token"

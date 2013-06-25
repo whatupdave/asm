@@ -1,25 +1,27 @@
 .page
-  %p
-    <strong>This idea is still being formed by #{@idea.user.email}.</strong>
+  %h1= @idea.name
 
-  %p Share this page with your friends to get early feedback. They'll only be able to look.
-  %blockquote
-    %a{href: idea_url(@idea)}= idea_url(@idea)
+  %blockquote.pitch= @idea.description
 
-  = form_tag idea_path(@idea), :method => :patch do
-    %input#idea_name{type: 'text', name: 'name', value: @idea.name, maxlength: 255}
-    %input#idea_pitch{type: 'text', name: 'pitch', value: @idea.pitch}
+  %p.description= @idea.description
 
-    %label(for="idea_description") Describe the details
-    %textarea#idea_description.textarea-vertical(type="text" rows="6" name="description")
-      = @idea.description
-    .hint
-      %p You can enter anything you like in this part. Great ideas clearly address these questions:
-      %ul
-        %li How did you come up with this idea?
-        %li What's new about this idea?
-        %li Do similar products exist already? (It's OK if they do)
-        %li How will it make money?
+  .presales
+    .amount
+      = currency @idea.sum_presales
+      presales
+    .backers
+      = @idea.count_presales
+      customers
 
-  %form
-    %input.btn(type="submit" value="Submit idea for review")
+  %hr/
+
+  .prepurchase
+    - if signed_in?
+      - if presale = @idea.presale_for(current_user)
+        %span.presale
+          You have prepurchased #{currency presale.amount} of this
+      - else
+        %a{href: '#'} Prepurchase
+
+    - else
+      %a{href: new_user_session_path} Prepurchase

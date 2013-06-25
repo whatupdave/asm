@@ -11,6 +11,9 @@
 %ul.ideas
   - for idea in @ideas
     %li.idea
-      %span.name= idea.name
+      %span.amount= currency idea.sum_presales
+      –
+      %span.name
+        %a{href: idea_path(idea.slug)}= idea.name
       –
       %span.pitch= idea.pitch

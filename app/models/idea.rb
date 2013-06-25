@@ -11,4 +11,20 @@ class Idea < ActiveRecord::Base
 
   validates :pitch, length: {maximum: 255}
 
+  has_many :presales
+
+  scope :approved, -> { where('approved_at is not null') }
+
+  def sum_presales
+    presales.inject(0) {|sum, ps| sum + ps.amount }
+  end
+
+  def count_presales
+    presales.size
+  end
+
+  def presale_for(user)
+    presales.find_by(user: user)
+  end
+
 end

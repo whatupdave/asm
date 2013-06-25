@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
   end
 
   def index
-    @ideas = Idea.all
+    @ideas = Idea.approved
   end
 
   def create
@@ -24,6 +24,15 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @idea = Idea.find_by(slug: params.fetch(:id))
+
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @idea }
+    end
+  end
+
+  def edit
     @idea = Idea.find(params.fetch(:id))
 
     respond_to do |format|
