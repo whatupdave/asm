@@ -17,6 +17,7 @@ kjdb = Idea.create!(
   description: 'An app that helps you find karaoke venues and songs to sing',
   submitted_at: 7.days.ago,
   approved_at: 5.days.ago,
+  presale_amount: 1500,
 )
 
 Idea.create!(
@@ -27,6 +28,7 @@ Idea.create!(
   description: 'Take a photo of your key and you get a copy in the mail',
   submitted_at: 7.days.ago,
   approved_at: 5.days.ago,
+  presale_amount: 2500,
 )
 
 Idea.create!(

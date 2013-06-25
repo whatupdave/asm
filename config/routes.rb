@@ -7,7 +7,9 @@ ASM::Application.routes.draw do
   get   '/new' => 'ideas#new', :as => :new_idea
   get   '/leaderboard' => 'ideas#index', :as => :ideas
 
-  resources :ideas, only: [:show, :create, :edit, :update]
+  resources :ideas, only: [:show, :create, :edit, :update] do
+    resources :presales, only: [:new, :create]
+  end
 
   get   '/batches/:id' => 'batches#show', :as => :batch
 

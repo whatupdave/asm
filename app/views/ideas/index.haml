@@ -1,12 +1,6 @@
 %h1 Assembly Leaderboard
 
-%ul
-  %li
-    %a(href="/") Manifesto
-  %li
-    %a(href="/help/manual") Manual
-  %li
-    %a(href="/leaderboard") Leaderboard
+= render partial: 'nav'
 
 %ul.ideas
   - for idea in @ideas

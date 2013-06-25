@@ -8,6 +8,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.text        :description
       t.datetime    :submitted_at
       t.datetime    :approved_at
+      t.integer     :presale_amount
       t.timestamps
     end
   end

@@ -8,6 +8,7 @@ class CreatePresales < ActiveRecord::Migration
 
       t.integer :amount, null: false
       t.string :charge_id
+      t.string :last4
       t.datetime :charged_at
 
       t.timestamps

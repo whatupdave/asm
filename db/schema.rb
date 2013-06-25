@@ -17,16 +17,17 @@ ActiveRecord::Schema.define(version: 20130624234229) do
   enable_extension "plpgsql"
 
   create_table "ideas", id: false, force: true do |t|
-    t.uuid     "id",           null: false
+    t.uuid     "id",             null: false
     t.string   "slug"
-    t.string   "name",         null: false
+    t.string   "name",           null: false
     t.string   "pitch"
     t.text     "description"
     t.datetime "submitted_at"
     t.datetime "approved_at"
+    t.integer  "presale_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.uuid     "user_id",      null: false
+    t.uuid     "user_id",        null: false
   end
 
   create_table "presales", id: false, force: true do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20130624234229) do
     t.uuid     "idea_id",    null: false
     t.integer  "amount",     null: false
     t.string   "charge_id"
+    t.string   "last4"
     t.datetime "charged_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130624234229) do
     t.uuid     "id",                                 null: false
     t.string   "username",                           null: false
     t.string   "customer_id"
+    t.string   "last4"
     t.string   "email",                              null: false
     t.string   "encrypted_password",                 null: false
     t.string   "reset_password_token"

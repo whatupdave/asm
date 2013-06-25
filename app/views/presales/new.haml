@@ -1,0 +1,43 @@
+%h1= @idea.name
+
+%blockquote.pitch= @idea.description
+
+%hr/
+
+%p Prepurchasing gets you 1 month of service.
+
+%p Your card won't be charged until the product launches.
+
+= form_for [@idea.slug, @presale], url: idea_presales_path(@idea.slug), method: 'POST', class: %w(prepurchase) do
+  %input{type: 'hidden', name: 'idea_id', value: @idea.id}
+  %input{type: 'hidden', name: 'stripeToken'}
+  %input{type: 'hidden', name: 'last4'}
+  %input{type: 'hidden', name: 'amount'}
+
+  %a.btn-stripe{href: '#'} Prepurchase for #{currency @idea.presale_amount}
+
+= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js"
+:javascript
+  $('.btn-stripe').click(function(){
+    var $this = $(this),
+        $form = $this.parents('form');
+
+    var cents = #{@idea.presale_amount};
+
+    var token = function(res) {
+      $form.find('input[name=stripeToken]').val(res.id);
+      $form.find('input[name=last4]').val(res.card.last4);
+      $form.find('input[name=amount]').val(cents);
+      $form.submit();
+    }
+
+    StripeCheckout.open({
+      key: #{ENV["STRIPE_PUBLISHABLE"].to_json},
+      name: 'Assembly',
+      description: 'Prepurchase for #{@idea.name}',
+      panelLabel: 'Prepurchase $' + (cents / 100) + '.00',
+      token: token
+    });
+
+    return false;
+  });

@@ -6,6 +6,7 @@ gem 'rails', '4.0.0.rc2'
 gem 'pg'
 gem 'devise', '~> 3.0.0.rc'
 gem 'active_model_serializers'
+gem 'stripe'
 
 # Assets
 gem 'sass-rails', '~> 4.0.0.rc2'

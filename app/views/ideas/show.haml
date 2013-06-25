@@ -1,27 +1,28 @@
-.page
-  %h1= @idea.name
+= render partial: 'nav'
 
-  %blockquote.pitch= @idea.description
+%h1= @idea.name
 
-  %p.description= @idea.description
+%blockquote.pitch= @idea.description
 
-  .presales
-    .amount
-      = currency @idea.sum_presales
-      presales
-    .backers
-      = @idea.count_presales
-      customers
+%p.description= @idea.description
 
-  %hr/
+.presales
+  .amount
+    = currency @idea.sum_presales
+    presales
+  .backers
+    = @idea.count_presales
+    customers
 
-  .prepurchase
-    - if signed_in?
-      - if presale = @idea.presale_for(current_user)
-        %span.presale
-          You have prepurchased #{currency presale.amount} of this
-      - else
-        %a{href: '#'} Prepurchase
+%hr/
 
+.prepurchase
+  - if signed_in?
+    - if presale = @idea.presale_for(current_user)
+      %span.presale
+        You have prepurchased #{currency presale.amount} of this
     - else
-      %a{href: new_user_session_path} Prepurchase
+      %a{href: new_idea_presale_path(@idea.slug)} Prepurchase this idea for #{currency @idea.presale_amount}
+
+  - else
+    %a{href: new_user_session_path} Prepurchase

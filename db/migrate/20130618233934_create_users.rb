@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :username, null: false
       t.string :customer_id
+      t.string :last4
 
       ## Database authenticatable
       t.string :email,              null: false
